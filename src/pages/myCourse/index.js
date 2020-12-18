@@ -7,32 +7,48 @@ import './style.css';
 function MyCourse() {
   const [isLoading, setLoading] = useState(false);
   const [classes, setClasses] = useState([]);
+
   const userId = JSON.parse(getCookie('userData'));
 
   useEffect(() => {
+    const classInfo = [];
     setLoading(true);
     classService
       .getClassByStudentId(userId)
       .then((res) => {
-        setClasses(res.data.registeredClass);
-      })
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [userId]);
-
-  useEffect(() => {
-    setLoading(true);
-    userService
-      .getStudentById(userId)
-      .then((res) => {
-        // eslint-disable-next-line no-console
-        console.log(res);
-        // setClasses(res.data);
+        if (res.data != null) {
+          setClasses(res.data.registeredClass);
+        } else {
+          setLoading(true);
+          userService
+            .getTeacherById(userId)
+            .then((resp) => {
+              resp.data.ownedClass.map((data) => {
+                setLoading(true);
+                classService
+                  .getClassById(data)
+                  .then((respon) => {
+                    classInfo.push(respon.data);
+                    setClasses(classInfo);
+                  })
+                  .catch((err) => {
+                    // eslint-disable-next-line no-console
+                    console.log(err);
+                  })
+                  .finally(() => {
+                    setLoading(false);
+                  });
+                return classInfo;
+              });
+            })
+            .catch((err) => {
+              // eslint-disable-next-line no-console
+              console.log(err);
+            })
+            .finally(() => {
+              setLoading(false);
+            });
+        }
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
@@ -46,19 +62,22 @@ function MyCourse() {
   return (
     <div className="mycourse">
       <h2 className="mycourse__heading">My Course</h2>
-      {isLoading}
-      <div className="cards">
-        {classes.map((data) => {
-          return (
-            <CourseCard
-              // eslint-disable-next-line no-underscore-dangle
-              key={data._id}
-              name={data.name}
-              desc={data.description}
-            />
-          );
-        })}
-      </div>
+      {!isLoading && classes !== [] ? (
+        <div className="cards">
+          {classes.map((data) => {
+            return (
+              <CourseCard
+                // eslint-disable-next-line no-underscore-dangle
+                key={data._id}
+                name={data.name}
+                desc={data.description}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <p>loading...</p>
+      )}
     </div>
   );
 }
