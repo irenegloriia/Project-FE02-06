@@ -1,4 +1,7 @@
-import { Home, Classespage } from '../pages';
+import { 
+  Home,
+  ClassesPage
+} from '../pages';
 
 const routes = [
   {
@@ -7,8 +10,8 @@ const routes = [
     isPublic: true,
   },
   {
-    path: '/Classespage',
-    component: Classespage,
+    path: '/ClassesPage',
+    component: ClassesPage,
     isPublic: true,
   },
 ];

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ClassesData } from '../../components';
 
-const Classespage = () => {
+const ClassesPage = () => {
   return (
     <div>
       <h1>Class</h1>
@@ -10,4 +10,4 @@ const Classespage = () => {
   );
 };
 
-export default Classespage;
+export default ClassesPage;
