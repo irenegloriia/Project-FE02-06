@@ -5,12 +5,14 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import CardHeader from '@material-ui/core/CardHeader';
+import IconButton from '@material-ui/core/IconButton';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Typography from '@material-ui/core/Typography';
-
 
 const useStyles = makeStyles({
   root: {
     minWidth: 200,
+    background: '#f1f1f1',
   },
   bullet: {
     display: 'inline-block',
@@ -27,23 +29,19 @@ const useStyles = makeStyles({
 
 export default function OutlinedCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+//   const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root} variant="outlined">
-      <CardHeader 
-        action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-        } 
+      <CardHeader
+        action={<IconButton aria-label="settings"><MoreVertIcon /></IconButton>}
         title="Class title"
       />
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
+          24 students
         </Typography>
-        <Typography variant="h5" component="h2">
+        {/* <Typography variant="h5" component="h2">
           be
           {bull}
           nev
@@ -51,17 +49,17 @@ export default function OutlinedCard() {
           o
           {bull}
           lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
+        </Typography> */}
+        {/* <Typography className={classes.pos} color="textSecondary">
+          class description
+        </Typography> */}
         <Typography variant="body2" component="p">
-          well meaning and kindly.
+          class description
           <br />
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button variant="contained" size="small" justify="center" color="primary">Learn More</Button>
       </CardActions>
     </Card>
   );

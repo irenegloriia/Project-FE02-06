@@ -1,9 +1,16 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from './Card';
 
 const useStyles = makeStyles({
+  addbutton: {
+    position: 'absolute',
+    bottom: '20px',
+    right: '20px',
+  },
   GridContainer: {
     paddingLeft: '20px',
     paddingRight: '20px'
@@ -26,6 +33,9 @@ const ClassesData = () => {
             <Card />
           </Grid>
         </Grid>
+        <Fab color="primary" aria-label="add" className={classes.addbutton}>
+          <AddIcon />
+        </Fab>
       </div>
   );
 };
