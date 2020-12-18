@@ -6,6 +6,7 @@ const routes = [
     component: Home,
     isPublic: true,
   },
+  {
     path: '/classes',
     component: Classespage,
     isPublic: true,
