@@ -1,6 +1,6 @@
-import { 
+import {
   Home,
-  ClassesPage
+  ClassesPage,
 } from '../pages';
 
 const routes = [
