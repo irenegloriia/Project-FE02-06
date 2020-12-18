@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => {
 });
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
 
@@ -63,25 +63,25 @@ const Login = () => {
 
   const onSubmitLogin = () => {
     setLoginLoading(true);
-    try {
-      authService
-        .login(email, password, role)
-        .then((res) => {
-          const cookieToken = res.token;
-          const cookieUser = res.userId;
-          setCookie('userData', JSON.stringify(cookieUser), 10000);
-          setCookie('token', JSON.stringify(cookieToken), 10000);
-        })
-        .catch((err) => {
-          // eslint-disable-next-line no-console
-          console.log(err);
-        })
-        .finally(() => {
-          setLoginLoading(false);
-        });
-    } catch {
-      window.location.replace('/login');
-    }
+    authService
+      .login(username, password, role)
+      .then((res) => {
+        const cookieToken = res.data.token;
+        const cookieUser = res.data.id;
+        setCookie('userData', JSON.stringify(cookieUser), 10000);
+        setCookie('token', JSON.stringify(cookieToken), 10000);
+        if (res.status === 'OK') {
+          window.location.replace('/');
+        }
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(err);
+        window.location.replace('/login');
+      })
+      .finally(() => {
+        setLoginLoading(false);
+      });
   };
 
   const classes = useStyles();
@@ -109,13 +109,13 @@ const Login = () => {
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
             autoFocus
             onChange={(e) => {
-              setEmail(e.target.value);
+              setUsername(e.target.value);
             }}
           />
           <TextField

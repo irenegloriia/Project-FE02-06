@@ -58,8 +58,8 @@ const useStyles = makeStyles((theme) => {
 });
 
 const Register = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -70,27 +70,20 @@ const Register = () => {
 
   const onSubmitRegister = () => {
     setRegisterLoading(true);
-    try {
-      authService
-        .register(firstName, lastName, username, email, password, role)
-        .then((res) => {
-          // eslint-disable-next-line no-console
-          console.log(res);
-          // const cookieToken = res.token;
-          // const cookieUser = res.userId;
-          // setCookie('userData', JSON.stringify(cookieUser), 10000);
-          // setCookie('token', JSON.stringify(cookieToken), 10000);
-        })
-        .catch((err) => {
-          // eslint-disable-next-line no-console
-          console.log(err);
-        })
-        .finally(() => {
-          setRegisterLoading(false);
-        });
-    } catch {
-      window.location.replace('/register');
-    }
+    authService
+      .register(username, name, email, password, phoneNumber, role)
+      .then((res) => {
+        if (res.status === 'OK') {
+          window.location.replace('/login');
+        }
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(err);
+      })
+      .finally(() => {
+        setRegisterLoading(false);
+      });
   };
   const classes = useStyles();
   return (
@@ -112,35 +105,6 @@ const Register = () => {
           }}
         >
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-                onChange={(e) => {
-                  setFirstName(e.target.value);
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-                onChange={(e) => {
-                  setLastName(e.target.value);
-                }}
-              />
-            </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -152,6 +116,20 @@ const Register = () => {
                 autoComplete="username"
                 onChange={(e) => {
                   setUsername(e.target.value);
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="name"
+                label="Name"
+                name="name"
+                autoComplete="name"
+                onChange={(e) => {
+                  setName(e.target.value);
                 }}
               />
             </Grid>
@@ -181,6 +159,20 @@ const Register = () => {
                 autoComplete="current-password"
                 onChange={(e) => {
                   setPassword(e.target.value);
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="phoneNumber"
+                label="Phone Number"
+                id="phoneNumber"
+                autoComplete="phoneNumber"
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
                 }}
               />
             </Grid>
