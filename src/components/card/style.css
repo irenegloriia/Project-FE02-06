@@ -1,0 +1,9 @@
+.picture {
+    width: 100%;
+}
+.button{
+    width: 10px;
+    color: secondary;
+    background-color: black;
+    font-size: 20px;
+}
