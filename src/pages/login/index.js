@@ -71,7 +71,7 @@ const Login = () => {
         setCookie('userData', JSON.stringify(cookieUser), 10000);
         setCookie('token', JSON.stringify(cookieToken), 10000);
         if (res.status === 'OK') {
-          window.location.replace('/');
+          window.location.replace('/mycourse');
         }
       })
       .catch((err) => {

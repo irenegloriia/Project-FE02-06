@@ -15,19 +15,27 @@ const Header = () => {
       })}
 
       {isUserAuthenticated() ? (
-        <div
-          className="menu"
-          role="button"
-          onKeyPress={() => {}}
-          tabIndex={0}
-          onClick={() => {
-            deleteCookie('userData');
-            deleteCookie('token');
-            window.location.replace('/');
-          }}
-        >
-          Logout
-        </div>
+        <>
+          <Link to="/allcourse" key="allcourse">
+            <div className="menu">All Courses</div>
+          </Link>
+          <Link to="/mycourse" key="mycourse">
+            <div className="menu">My Course</div>
+          </Link>
+          <div
+            className="menu"
+            role="button"
+            onKeyPress={() => {}}
+            tabIndex={0}
+            onClick={() => {
+              deleteCookie('userData');
+              deleteCookie('token');
+              window.location.replace('/');
+            }}
+          >
+            Logout
+          </div>
+        </>
       ) : (
         <>
           <Link to="/login" key="login">

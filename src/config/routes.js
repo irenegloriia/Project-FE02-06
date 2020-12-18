@@ -1,4 +1,11 @@
-import { Home, TeacherLesson, Register, Login } from '../pages';
+import {
+  Home,
+  TeacherLesson,
+  Register,
+  Login,
+  myCourse,
+  allCourse,
+} from '../pages';
 
 const routes = [
   {
@@ -10,6 +17,16 @@ const routes = [
     path: '/register',
     component: Register,
     isPublic: true,
+  },
+  {
+    path: '/mycourse',
+    component: myCourse,
+    isPublic: false,
+  },
+  {
+    path: '/allcourse',
+    component: allCourse,
+    isPublic: false,
   },
   {
     path: '/login',
