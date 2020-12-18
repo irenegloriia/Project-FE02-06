@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,47 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App {
+  text-align: center;
+}
+
+.header {
+  background-color: #3F51B5;
+
+}
+
+.menu {
+  display: inline-block;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.menu:hover {
+  background-color: white;
+  color:#3F51B5;
+  font-weight: bold;
+}
+
+.center_view {
+  width: 80%;
+}
+
+.loginPage {
+  width: 100%;
+}
+
+.login_form label input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+span {
+  display: inline-block;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
 }
