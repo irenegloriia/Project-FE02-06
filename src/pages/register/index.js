@@ -74,6 +74,7 @@ const Register = () => {
       authService
         .register(firstName, lastName, username, email, password, role)
         .then((res) => {
+          // eslint-disable-next-line no-console
           console.log(res);
           // const cookieToken = res.token;
           // const cookieUser = res.userId;
@@ -81,6 +82,7 @@ const Register = () => {
           // setCookie('token', JSON.stringify(cookieToken), 10000);
         })
         .catch((err) => {
+          // eslint-disable-next-line no-console
           console.log(err);
         })
         .finally(() => {

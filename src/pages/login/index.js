@@ -63,18 +63,17 @@ const Login = () => {
 
   const onSubmitLogin = () => {
     setLoginLoading(true);
-    console.log(email, password);
     try {
       authService
         .login(email, password, role)
         .then((res) => {
-          console.log(res);
           const cookieToken = res.token;
           const cookieUser = res.userId;
           setCookie('userData', JSON.stringify(cookieUser), 10000);
           setCookie('token', JSON.stringify(cookieToken), 10000);
         })
         .catch((err) => {
+          // eslint-disable-next-line no-console
           console.log(err);
         })
         .finally(() => {
