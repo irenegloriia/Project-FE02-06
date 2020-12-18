@@ -12,8 +12,8 @@ const useStyles = makeStyles({
     right: '20px',
   },
   GridContainer: {
-    paddingLeft: '20px',
-    paddingRight: '20px'
+    paddingLeft: '60px',
+    paddingRight: '60px'
   }
 });
 
@@ -23,6 +23,15 @@ const ClassesData = () => {
       <div>
         <h1>Class</h1>
         <Grid container spacing={4} className={classes.GridContainer} justify="center">
+          <Grid item xs={12} sm={6} md={4}>
+            <Card />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card />
+          </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card />
           </Grid>
