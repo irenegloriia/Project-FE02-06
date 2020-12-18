@@ -24,7 +24,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <HeaderPage />
-      <card />
+      {/* <card /> */}
       <Switch>
         {routes.map((route) => {
           if (route.isPublic) {

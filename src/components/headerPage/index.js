@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import { isUserAuthenticated } from '../../utils/cookie';
 
 const Header = () => {
-  const listMenu = ['LogIn', 'For Teacher', 'For Student'];
+  const listMenu = ['Home', 'Login', 'Register'];
   return (
     <div className="header">
       {listMenu.map((name) => {
         return (
-          <Link to={`/${name}`} key={name}>
+          <Link to={`/${name.toLowerCase()}`} key={name.toLowerCase()}>
             <div className="menu">{name}</div>
           </Link>
         );
       })}
 
-      {isUserAuthenticated() ? <span>Logout</span> : <div />}
+      {isUserAuthenticated() ? <div className="menu">Logout</div> : <div />}
     </div>
   );
 };
