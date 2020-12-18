@@ -27,34 +27,23 @@ const useStyles = makeStyles({
   },
 });
 
-export default function OutlinedCard() {
+export default function OutlinedCard(props) {
   const classes = useStyles();
+  const { name, desc } = props;
 //   const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root} variant="outlined">
       <CardHeader
         action={<IconButton aria-label="settings"><MoreVertIcon /></IconButton>}
-        title="Class title"
+        title={name}
       />
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           24 students
         </Typography>
-        {/* <Typography variant="h5" component="h2">
-          be
-          {bull}
-          nev
-          {bull}
-          o
-          {bull}
-          lent
-        </Typography> */}
-        {/* <Typography className={classes.pos} color="textSecondary">
-          class description
-        </Typography> */}
         <Typography variant="body2" component="p">
-          class description
+          {desc}
           <br />
         </Typography>
       </CardContent>
