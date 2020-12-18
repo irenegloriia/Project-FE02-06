@@ -22,6 +22,9 @@ const Header = () => {
           <Link to="/mycourse" key="mycourse">
             <div className="menu">My Course</div>
           </Link>
+          <Link to="/profile" key="profile">
+            <div className="menu">Profile</div>
+          </Link>
           <div
             className="menu"
             role="button"

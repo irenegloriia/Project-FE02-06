@@ -5,4 +5,8 @@ const getAllClass = () => {
   return BaseService.get(API.CLASSES);
 };
 
-export default { getAllClass };
+const getClassByStudentId = (userId) => {
+  return BaseService.get(API.CLASSESBYSTUDENTID(userId));
+};
+
+export default { getAllClass, getClassByStudentId };

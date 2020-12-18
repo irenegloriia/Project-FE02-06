@@ -10,6 +10,9 @@ export default {
     return `teachers/${teacherId}`;
   },
   CLASSES: '/classes',
+  CLASSESBYSTUDENTID: (studentId) => {
+    return `students/${studentId}/classes`;
+  },
   LESSONS: (classId) => {
     return `classes/${classId}/lessons`;
   },
