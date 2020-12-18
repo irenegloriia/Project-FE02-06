@@ -1,1 +1,1 @@
-export { default as ClassesData } from './ClassesData'; 
+export { default as ClassesData } from './ClassesData';
