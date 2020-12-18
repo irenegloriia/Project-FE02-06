@@ -5,13 +5,18 @@ import {
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     component: Home,
     isPublic: true,
   },
   {
     path: '/ClassesPage',
     component: ClassesPage,
+    isPublic: true,
+  },
+  {
+    path: '/',
+    component: Home,
     isPublic: true,
   },
 ];

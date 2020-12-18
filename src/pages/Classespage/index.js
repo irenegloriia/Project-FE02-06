@@ -4,7 +4,7 @@ import { ClassesData } from '../../components';
 const ClassesPage = () => {
   return (
     <div>
-      <h1>Class</h1>
+      {/* <h1>Class</h1> */}
       <ClassesData />
     </div>
   );
