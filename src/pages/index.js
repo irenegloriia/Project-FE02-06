@@ -1,2 +1,2 @@
 export { default as Home } from './home';
-export { default as Classespage } from './classes';
+export { default as Classespage } from './Classespage';
