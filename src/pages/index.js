@@ -5,3 +5,4 @@ export { default as Register } from './register';
 export { default as Login } from './login';
 export { default as myCourse } from './myCourse';
 export { default as allCourse } from './allCourse';
+export { default as myProfile } from './myProfile';

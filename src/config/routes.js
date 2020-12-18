@@ -5,6 +5,7 @@ import {
   Login,
   myCourse,
   allCourse,
+  myProfile,
 } from '../pages';
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
   {
     path: '/allcourse',
     component: allCourse,
+    isPublic: false,
+  },
+  {
+    path: '/profile',
+    component: myProfile,
     isPublic: false,
   },
   {
